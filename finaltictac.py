@@ -149,19 +149,22 @@ def render(message, state, c_choice, h_choice):
     Print the board on console
     :param state: current state of the board
     """
+    digits = [['1️⃣', '2️⃣', '3️⃣'],
+              ['4️⃣', '5️⃣', '6️⃣'],
+              ['7️⃣', '8️⃣', '9️⃣']]
 
     chars = {
         -1: h_choice,
         +1: c_choice,
         0: '   '
     }
-    str_line = '------------------'
+    str_line = '-------------------'
 
     msg = '\n' + str_line + '\n'
-    for row in state:
-        for cell in row:
-            symbol = chars[cell]
-            msg += f'| {symbol} |'
+    for i, row in enumerate(state):
+        for j, cell in enumerate(row):
+            symbol = chars[cell] if cell != 0 else digits[i][j]
+            msg += f'  {symbol}  ' if j % 2 else f'|  {symbol}  |'
         msg += '\n' + str_line + '\n'
 
     bot.send_message(message.chat.id, msg)
