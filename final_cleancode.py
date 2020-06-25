@@ -3,6 +3,7 @@ from random import choice
 from telebot import types
 import telebot
 
+# https://github.com/friedwok/tictactoebot/blob/master/tictactoe/game.py
 bot = telebot.TeleBot('1101157557:AAEbuY7qdr9xHROQOEuAC5hZ3UyWWuz1S7U')
 
 h_move = -1
